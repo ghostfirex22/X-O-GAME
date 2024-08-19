@@ -3,38 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="X_O_GAME.CSS">
-    <title>Document</title>
+    <title>X-O Game</title>
 </head>
 <body>
     <header>
-        <ul >
-            <li><h1>X O Game</h1></li>
-            <li class="sing-in">SING IN</li>
+        <ul>
+            <li class="title"><img class="logo" src="xo-logo.png" alt=""><h1>TIC-TAC-TOE Game</h1></li>
+            <li class="connect">
+                <p class="sing-in">sing-In</p>
+                <p class="sing-up">Sing Up</p>
+            </li>
+            
         </ul>
 
     </header>
-
-    <div class="container" id="container">
-        <div class="line1">
-            <div class="box" id="b1"></div>
-            <div class="box" id="b2"></div>
-            <div class="box" id="b3"></div>
+    <div class="content">
+        <div class="o_score">
+            <p>O SCORE : </p>
+            <span id="score-points-O">0</span>
         </div>
+        <div class="container" id="container">
+            <div class="line1">
+                <div class="box" id="b1"></div>
+                <div class="box" id="b2"></div>
+                <div class="box" id="b3"></div>
+            </div>
 
-        <div class="line1">
-            <div class="box" id="b4"></div>
-            <div class="box" id="b5"></div>
-            <div class="box" id="b6"></div>
-        </div>
+            <div class="line1">
+                <div class="box" id="b4"></div>
+                <div class="box" id="b5"></div>
+                <div class="box" id="b6"></div>
+            </div>
 
-        <div class="line1">
-            <div class="box" id="b7"></div>
-            <div class="box" id="b8"></div>
-            <div class="box" id="b9"></div>
+            <div class="line1">
+                <div class="box" id="b7"></div>
+                <div class="box" id="b8"></div>
+                <div class="box" id="b9"></div>
+            </div>
+        </div> 
+
+        <div class="x_score">
+            <p>X SCORE : </p>
+            <span id="score-points-X">0</span>
         </div>
-    </div> 
-    <button>Restart</button>
+    </div>
+    <button><i class="fa fa-refresh" style="font-size:36px;"></i>
+        <p>Restart</p>
+    </button>
     <script src="X_O_GAME.JS"></script>
 </body>
 </html>

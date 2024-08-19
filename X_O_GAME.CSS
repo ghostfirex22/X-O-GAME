@@ -3,6 +3,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 40px;
 }
 
 *{
@@ -11,35 +12,56 @@ body{
 }
 
 h1{
+    color:yellow;
+    display: inline;
     margin: 0;
     margin-bottom: 15px;
     font-size: 60px;
-    font-family:'Times New Roman', Times, serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: #1c4146 2px 5px 10px;
 }
 
 header{
     width: 100%;
     height: 100%;
     background-color: #005FAF;
+    box-shadow: #1e2641 2px 2px 5px;
 }
 
 header ul{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background-color: #007281;
-    gap: 200px;
+    background-color:;
     height: 100%;
     list-style: none;
 }
 
-.sing-in{
+.connect{
+    display: flex;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo{
+    padding-left: 10px ;
+    width: 100px;
+}
+
+.sing-in, .sing-up{
     font-size: 25px;
     margin: 10px;
     padding: 10px;
     background-color: #F1C40F;
     align-self: flex-end;
+    cursor: pointer;
+    border-radius: 10%;
 }
 
 
@@ -54,6 +76,7 @@ header ul{
     align-items: center ;
     justify-content: center;
     border-radius: 5px;
+    box-shadow: #1e2641 1px 2px 5px;
 }
 
 .line1{
@@ -78,6 +101,12 @@ header ul{
     justify-content: center;
 }
 
+.content{
+    display: flex;
+    justify-content:space-around;
+    gap: 120px;
+}
+
 .player1_box{
     background-image: url('X.png');
     background-position: center;
@@ -97,6 +126,10 @@ header ul{
 }
 
 button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
     background-color: #0030F5;
     border: none;
     border-radius: 3px;
@@ -104,7 +137,6 @@ button{
     width: 200px;
     height: 50px;
     font-size: 30px;
-    text-align: center;
     font-weight: 700;
     transition: 0.2s;
 }
@@ -112,4 +144,47 @@ button{
 button:hover{
     transition: 0.2s;
     transform:scale(1.1);
+}
+
+button i{
+    transition: 0.5s;
+}
+
+button:hover i{
+    transition: 0.5s;
+    transform:rotate(180deg);
+}
+
+.o_score{
+    color: rgb(0, 0, 214);
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: rgb(51, 51, 51) 1px 1px 2px;
+}
+
+.o_score p{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.o_score span{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.x_score{
+    color: #C62828;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: rgb(51, 51, 51) 1px 1px 1px;
+}
+
+.x_score p{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.x_score span{
+    font-size: 30px;
+    font-weight: 600;
 }

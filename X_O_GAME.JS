@@ -16,40 +16,40 @@ const win_conditions = [
     [2, 4, 6]
 ] 
 
-let to_win = 0
-
+let to_win_O = 0
+let to_win_X = 0
 
 
 
 for (let i = 0 ; i <= 8 ; i++ ){
     item = { box :document.getElementsByClassName("box")[i] , played : false};
     boxes.push(item);
-    console.log(boxes);
 }
 
-document.querySelector("button").addEventListener("click",()=> {
-    p = 0 ;
-    player_boxes_played_1 = []
-    player_boxes_played_2 = []
-    boxes.forEach(function(box,i){
-        box.played = false;
-    });
-    let test1 = document.querySelectorAll(".player1_box")
-    console.log(test1)
-    for (let i = 0 ; i < test1.length ; i++){
-        test1[i].classList.remove("player1_box");
-    }
+function restart() {
+        p = 0 ;
+        player_boxes_played_1 = []
+        player_boxes_played_2 = []
+        boxes.forEach(function(box,i){
+            box.played = false;
+        });
+        let test1 = document.querySelectorAll(".player1_box")
+        console.log(test1)
+        for (let i = 0 ; i < test1.length ; i++){
+            test1[i].classList.remove("player1_box");
+        }
+    
+        let test2 = document.querySelectorAll(".player2_box")
+        console.log(test2)
+        for (let i = 0 ; i < test2.length ; i++){
+            test2[i].classList.remove("player2_box");
+        }
+};
 
-    let test2 = document.querySelectorAll(".player2_box")
-    console.log(test2)
-    for (let i = 0 ; i < test2.length ; i++){
-        test2[i].classList.remove("player2_box");
-    }
+document.querySelector("button").addEventListener("click", restart);
 
-
-})
-
-
+let x_points = 0
+let o_points = 0
 
 boxes.forEach(function(item, index) {
     item.box.addEventListener("click" , function(e){
@@ -65,30 +65,16 @@ boxes.forEach(function(item, index) {
                 item.box.append(x);
                 p = 1;
                 for (let k = 0 ; k < win_conditions.length ; k++){
-                    to_win = 0
+                    to_win_X = 0
                     for (let j = 0 ; j < win_conditions[k].length ; j++){
                         if (player_boxes_played_1.includes(win_conditions[k][j])){
-                            console.log(win_conditions[k][j])
-                            to_win += 1
-                            if (to_win === 3){      
+                            to_win_X += 1
+                            if (to_win_X === 3){ 
                                 console.log("GG")
-                                p = 0 ;
-                                player_boxes_played_1 = []
-                                player_boxes_played_2 = []
-                                boxes.forEach(function(box,i){
-                                    box.played = false;
-                                });
-                                let test1 = document.querySelectorAll(".player1_box")
-                                console.log(test1)
-                                for (let i = 0 ; i < test1.length ; i++){
-                                    test1[i].classList.remove("player1_box");
-                                }
-                            
-                                let test2 = document.querySelectorAll(".player2_box")
-                                console.log(test2)
-                                for (let i = 0 ; i < test2.length ; i++){
-                                    test2[i].classList.remove("player2_box");
-                                }
+                                x_points += 1
+                                console.log(x_points)
+                                document.getElementById("score-points-X").innerHTML = x_points
+                                setTimeout(restart,150)
                                 break
                             }
                         }
@@ -104,6 +90,21 @@ boxes.forEach(function(item, index) {
                 x.classList.add("player2_box");
                 item.box.append(x);
                 p = 0;
+                for (let k = 0 ; k < win_conditions.length ; k++){
+                    to_win_O  = 0
+                    for (let j = 0 ; j < win_conditions[k].length ; j++){
+                        if (player_boxes_played_2.includes(win_conditions[k][j])){
+                            to_win_O += 1
+                            if (to_win_O === 3){      
+                                console.log("GG")
+                                o_points += 1
+                                document.getElementById("score-points-O").innerHTML = o_points
+                                setTimeout(restart,150)
+                                break
+                            }
+                        }
+                    }
+                }
             }
         }
         else{
